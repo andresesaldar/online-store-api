@@ -1,0 +1,8 @@
+group = 'com.test.online.store.inventory'
+
+dependencies {
+}
+
+bootJar {
+    enabled = true
+}
