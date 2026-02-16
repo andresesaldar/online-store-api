@@ -1,0 +1,49 @@
+plugins {
+	id 'java'
+	alias(libs.plugins.springBoot) apply false
+	alias(libs.plugins.springDependencyManagement) apply false
+	alias(libs.plugins.lombok) apply false
+}
+
+group = 'com.test.online.store'
+version = '0.0.1-SNAPSHOT'
+description = 'Inventory microservice for online store tecnical test'
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: libs.plugins.springBoot.get().pluginId
+	apply plugin: libs.plugins.springDependencyManagement.get().pluginId
+	apply plugin: libs.plugins.lombok.get().pluginId
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(17)
+		}
+	}
+
+	dependencies {
+		
+		implementation 'org.springframework.boot:spring-boot-starter'
+
+		implementation platform(libs.springCloudDependencies)
+		
+		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+		
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	}
+
+	bootJar {
+		enabled = false
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+}

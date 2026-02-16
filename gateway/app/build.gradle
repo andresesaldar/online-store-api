@@ -1,0 +1,8 @@
+group = 'com.test.online.store.gateway'
+
+dependencies {
+}
+
+bootJar {
+    enabled = true
+}
