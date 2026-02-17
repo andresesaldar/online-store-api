@@ -3,12 +3,9 @@ springbootVersion = "4.0.2"
 springDependencyManagementVersion = "1.1.7"
 lombokPluginVersion = "9.2.0"
 springCloudVersion = "2025.1.1"
-mapstructVersion = "1.6.3"
 
 [libraries]
 springCloudDependencies = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "springCloudVersion" }
-mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstructVersion" }
-mapstructProcessor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstructVersion" }
 
 [plugins]
 springBoot = { id = "org.springframework.boot", version.ref = "springbootVersion" }

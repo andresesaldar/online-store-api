@@ -1,0 +1,15 @@
+group = 'com.test.online.store.product'
+
+dependencies {
+    implementation project(":domain")
+
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+
+    implementation(libs.mapstruct)
+ 
+    annotationProcessor(libs.mapstructProcessor)
+}
+
+bootJar {
+    enabled = false
+}

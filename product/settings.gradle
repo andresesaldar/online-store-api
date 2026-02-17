@@ -1,3 +1,14 @@
 rootProject.name = 'product'
 
+include(":domain")
+
+include(":service")
+
 include(":app")
+
+include(":common-model")
+project(":common-model").projectDir = file("../common/common-model")
+
+include(":common-domain")
+project(":common-domain").projectDir = file("../common/common-domain")
+

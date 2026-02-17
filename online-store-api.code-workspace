@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "product"
+		},
+		{
+			"path": "inventory"
+		},
+		{
+			"path": "gateway"
+		},
+		{
+			"path": "common"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}

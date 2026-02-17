@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication(scanBasePackages = "com.test.online.store.product.*")
-@ConfigurationPropertiesScan(basePackages = "com.test.online.store.product.*")
+@ConfigurationPropertiesScan(basePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"})
 public class OnlineStoreProductApplication {
 
     public static void main(String[] args) {
