@@ -1,3 +1,7 @@
 spring:
     application:
         name: online-store-product
+    datasource:
+        url: jdbc:postgresql://localhost:5432/products
+        username: postgres
+        password: password

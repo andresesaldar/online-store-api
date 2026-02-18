@@ -3,14 +3,34 @@ package com.test.online.store.product.service.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.test.online.store.common.model.helper.SlugHelper;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Min;
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 @Value
-@Builder(toBuilder = true)
 public class ProductBean implements Serializable {
+    @NotEmpty
     String slug;
+    
+    @NotEmpty
+    @Min(3)
     String name;
+    
+    @Min(0)
     BigDecimal price;
-    String description;    
+
+    String description;
+
+    @Builder
+    @Jacksonized
+    public ProductBean(String name, BigDecimal price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.slug = SlugHelper.toSlug(name);
+    }
 }

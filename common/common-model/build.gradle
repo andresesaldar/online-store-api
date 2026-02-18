@@ -1,8 +1,1 @@
 group = 'com.test.online.store.common'
-
-dependencies {
-}
-
-bootJar {
-    enabled = false
-}

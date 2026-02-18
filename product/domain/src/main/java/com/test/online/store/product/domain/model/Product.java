@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -16,6 +17,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "product", uniqueConstraints = @UniqueConstraint(columnNames = "slug"))
+@NoArgsConstructor
 public class Product extends Auditable<Long> {
 
     @Column(nullable = false, unique = true)

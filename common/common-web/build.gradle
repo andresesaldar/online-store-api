@@ -1,0 +1,5 @@
+group = 'com.test.online.store.common'
+
+dependencies {
+    implementation project(":common-service")
+}

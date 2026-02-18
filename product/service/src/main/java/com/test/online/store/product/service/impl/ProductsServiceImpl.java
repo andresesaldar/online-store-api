@@ -2,15 +2,20 @@ package com.test.online.store.product.service.impl;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.test.online.store.common.service.builder.PageableBuilder;
+import com.test.online.store.common.service.model.PageResult;
 import com.test.online.store.product.domain.model.Product;
 import com.test.online.store.product.domain.repository.ProductsRepository;
 import com.test.online.store.product.service.ProductsService;
 import com.test.online.store.product.service.mapper.ProductsMapper;
 import com.test.online.store.product.service.model.ProductBean;
 
-import jakarta.transaction.Transactional;
+import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -19,11 +24,19 @@ public class ProductsServiceImpl implements ProductsService {
 
     private final ProductsRepository productsRepository;
     private final ProductsMapper productsMapper;
+    private final PageableBuilder pageableBuilder;
 
     @Override
     @Transactional
     public ProductBean create(ProductBean productBean) {
         final Product product = productsMapper.toEntity(productBean);
+
+        final Optional<Product> existingProduct = productsRepository.findBySlug(product.getSlug());
+        if (existingProduct.isPresent()) {
+            // TODO Replace with orElseThrow and create a custom exception
+            return null;
+        }
+
         final Product savedProduct = productsRepository.save(product);
         return productsMapper.toProduct(savedProduct);
     }
@@ -34,6 +47,13 @@ public class ProductsServiceImpl implements ProductsService {
         return product.map(productsMapper::toProduct)
                 // TODO Replace with orElseThrow and create a custom exception
                 .orElse(null);
+    }
+
+    @Override
+    public PageResult<ProductBean> getAll(@Nullable Integer page, @Nullable Integer size) {
+        final Pageable pageable = pageableBuilder.page(page).size(size).build();
+        final Page<Product> productsPageable = productsRepository.findAll(pageable);
+        return productsMapper.toPageResult(productsPageable);
     }
 
 }

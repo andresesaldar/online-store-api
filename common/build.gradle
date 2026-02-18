@@ -1,5 +1,4 @@
 plugins {
-	id 'java'
 	alias(libs.plugins.springBoot) apply false
 	alias(libs.plugins.springDependencyManagement) apply false
 	alias(libs.plugins.lombok) apply false
@@ -7,7 +6,7 @@ plugins {
 
 group = 'com.test.online.store'
 version = '0.0.1-SNAPSHOT'
-description = 'Common library for online store tecnical test'
+description = 'Common library for online store technical test'
 
 allprojects {
 	repositories {
@@ -16,8 +15,7 @@ allprojects {
 }
 
 subprojects {
-	apply plugin: 'java'
-	apply plugin: libs.plugins.springBoot.get().pluginId
+	apply plugin: 'java-library'
 	apply plugin: libs.plugins.springDependencyManagement.get().pluginId
 	apply plugin: libs.plugins.lombok.get().pluginId
 
@@ -28,22 +26,26 @@ subprojects {
 	}
 
 	dependencies {
-		
-		implementation 'org.springframework.boot:spring-boot-starter'
 
-		implementation platform(libs.springCloudDependencies)
-		
+		annotationProcessor(libs.lombok)
+
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-		
-		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	}
 
-	bootJar {
-		enabled = false
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework:spring-framework-bom:${libs.versions.springframeworkVersion.get()}")
+			mavenBom("org.springframework.data:spring-data-bom:${libs.versions.springDataBomVersion.get()}")
+			mavenBom("org.junit:junit-bom:${libs.versions.junitVersion.get()}")
+		}
 	}
 
 	tasks.named('test') {
 		useJUnitPlatform()
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+		options.compilerArgs += ['-parameters']
 	}
 }
