@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import com.test.online.store.common.model.helper.SlugHelper;
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Min;
 import lombok.Builder;
 import lombok.Value;
@@ -17,7 +18,7 @@ public class ProductBean implements Serializable {
     String slug;
     
     @NotEmpty
-    @Min(3)
+    @Size(min = 3)
     String name;
     
     @Min(0)

@@ -12,8 +12,11 @@ import com.test.online.store.common.model.Updatable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,9 +28,10 @@ import lombok.Setter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
-public class Auditable<ID> implements Identifiable<ID>, Creatable, Updatable {
+public class Auditable implements Identifiable<Long>, Creatable, Updatable {
     @Id
-    private ID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate

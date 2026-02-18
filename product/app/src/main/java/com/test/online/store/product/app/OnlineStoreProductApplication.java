@@ -4,9 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.persistence.autoconfigure.EntityScan;
+import org.springframework.boot.security.autoconfigure.SecurityAutoConfiguration;
+import org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"})
+@SpringBootApplication(
+    scanBasePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"},
+    exclude = {SecurityAutoConfiguration.class, UserDetailsServiceAutoConfiguration.class})
 @ConfigurationPropertiesScan(basePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"})
 @EnableJpaRepositories(basePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"})
 @EntityScan(basePackages = {"com.test.online.store.product.*", "com.test.online.store.common.*"})

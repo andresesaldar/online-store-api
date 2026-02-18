@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.test.online.store.common.service.builder.PageableBuilder;
+import com.test.online.store.common.service.error.CommonValidationError;
+import com.test.online.store.common.service.error.ValidationError;
 import com.test.online.store.common.service.model.PageResult;
 import com.test.online.store.product.domain.model.Product;
 import com.test.online.store.product.domain.repository.ProductsRepository;
@@ -33,8 +35,7 @@ public class ProductsServiceImpl implements ProductsService {
 
         final Optional<Product> existingProduct = productsRepository.findBySlug(product.getSlug());
         if (existingProduct.isPresent()) {
-            // TODO Replace with orElseThrow and create a custom exception
-            return null;
+            throw CommonValidationError.ITEM_ALREADY_EXISTS.exception();
         }
 
         final Product savedProduct = productsRepository.save(product);
@@ -42,14 +43,15 @@ public class ProductsServiceImpl implements ProductsService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ProductBean getBySlug(String slug) {
         final Optional<Product> product = productsRepository.findBySlug(slug);
         return product.map(productsMapper::toProduct)
-                // TODO Replace with orElseThrow and create a custom exception
-                .orElse(null);
+                .orElseThrow(() -> CommonValidationError.ITEM_NOT_FOUND.exception());
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResult<ProductBean> getAll(@Nullable Integer page, @Nullable Integer size) {
         final Pageable pageable = pageableBuilder.page(page).size(size).build();
         final Page<Product> productsPageable = productsRepository.findAll(pageable);

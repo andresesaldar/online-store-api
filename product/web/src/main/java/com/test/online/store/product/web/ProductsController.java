@@ -9,6 +9,7 @@ import com.test.online.store.common.web.route.CommonRoute;
 import com.test.online.store.product.service.ProductsService;
 import com.test.online.store.product.service.model.ProductBean;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 import org.springframework.http.MediaType;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping(value = ProductRoute.BASE, produces = MediaType.APPLICATION_JSON_VALUE)
+@SecurityRequirement(name = "API_KEY")
 @RequiredArgsConstructor
 public class ProductsController {
 

@@ -1,7 +1,10 @@
-CREATE DATABASE products;
+SELECT 'CREATE DATABASE products'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'products')\gexec
+
+\connect products
 
 CREATE TABLE product (
-    id BIGINT PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
 
     slug VARCHAR(255) NOT NULL UNIQUE,
     name VARCHAR(255) NOT NULL,

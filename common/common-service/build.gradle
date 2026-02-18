@@ -7,7 +7,10 @@ dependencies {
     implementation "org.springframework:spring-tx"
     
     implementation 'org.springframework.data:spring-data-jpa'
+    implementation "org.springframework.security:spring-security-config"
 
     implementation(libs.jakartaValidationApi)
     implementation(libs.jakartaAnnotationApi)
+    implementation(libs.jakartaServletApi)
+    implementation(libs.jacksonDatabind)
 }

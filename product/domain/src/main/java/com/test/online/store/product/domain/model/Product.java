@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "product", uniqueConstraints = @UniqueConstraint(columnNames = "slug"))
 @NoArgsConstructor
-public class Product extends Auditable<Long> {
+public class Product extends Auditable {
 
     @Column(nullable = false, unique = true)
     private String slug;

@@ -5,3 +5,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/products
         username: postgres
         password: password
+    
+app:
+    security:
+        api-key: kxMcvCpeRe7Nv6WSrFDmvA37FWG04sz3cyRMA0y8

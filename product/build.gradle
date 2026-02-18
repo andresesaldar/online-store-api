@@ -37,6 +37,8 @@ subprojects {
 		imports {
 			mavenBom("org.springframework:spring-framework-bom:${libs.versions.springframeworkVersion.get()}")
 			mavenBom("org.springframework.data:spring-data-bom:${libs.versions.springDataBomVersion.get()}")
+			mavenBom("org.springframework.security:spring-security-bom:${libs.versions.springSecurityVersion.get()}")
+			mavenBom("org.slf4j:slf4j-bom:${libs.versions.slf4jBomVersion.get()}")
 			mavenBom("org.junit:junit-bom:${libs.versions.junitVersion.get()}")
 		}
 	}
