@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.test.online.store'
 version = '0.0.1-SNAPSHOT'
-description = 'Product microservice for online store technical test'
+description = 'Common library for online store technical test'
 
 allprojects {
 	repositories {
@@ -30,7 +30,7 @@ subprojects {
 		annotationProcessor(libs.lombok)
 
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-		
+
 	}
 
 	dependencyManagement {

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "product"
+		},
+		{
+			"path": "common"
+		},
+		{
+			"path": "docker"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "automatic",
+    	"java.import.gradle.enabled": true,
+	}
+}

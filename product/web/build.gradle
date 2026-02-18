@@ -1,0 +1,13 @@
+group = 'com.test.online.store.product'
+
+dependencies {
+    implementation project(':common-service')
+    implementation project(':common-web')
+
+    implementation project(':service')
+    
+    implementation "org.springframework:spring-web"
+    implementation(libs.jakartaValidationApi)
+    
+    implementation(libs.swaggerAnnotations)
+}

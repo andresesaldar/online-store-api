@@ -1,0 +1,10 @@
+group = 'com.test.online.store.product'
+
+dependencies {
+    implementation project(":common-model")
+    implementation project(":common-domain")
+
+    implementation 'org.springframework.data:spring-data-jpa'
+
+    implementation(libs.jakartaPersistenceApi)
+}
