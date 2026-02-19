@@ -1,0 +1,9 @@
+rootProject.name = 'common'
+
+include(":common-model")
+
+include(":common-domain")
+
+include(":common-service")
+
+include(":common-web")

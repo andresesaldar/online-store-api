@@ -1,0 +1,53 @@
+plugins {
+	alias(libs.plugins.springBoot) apply false
+	alias(libs.plugins.springDependencyManagement) apply false
+	alias(libs.plugins.lombok) apply false
+}
+
+group = 'com.test.online.store'
+version = '0.0.1-SNAPSHOT'
+description = 'Common library for online store technical test'
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+subprojects {
+	apply plugin: 'java-library'
+	apply plugin: libs.plugins.springDependencyManagement.get().pluginId
+	apply plugin: libs.plugins.lombok.get().pluginId
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(17)
+		}
+	}
+
+	dependencies {
+
+		annotationProcessor(libs.lombok)
+
+		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework:spring-framework-bom:${libs.versions.springframeworkVersion.get()}")
+			mavenBom("org.springframework.data:spring-data-bom:${libs.versions.springDataBomVersion.get()}")
+			mavenBom("org.springframework.security:spring-security-bom:${libs.versions.springSecurityVersion.get()}")
+			mavenBom("org.slf4j:slf4j-bom:${libs.versions.slf4jBomVersion.get()}")
+			mavenBom("org.junit:junit-bom:${libs.versions.junitVersion.get()}")
+		}
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+		options.compilerArgs += ['-parameters']
+	}
+}

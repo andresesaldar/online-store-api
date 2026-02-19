@@ -1,3 +1,18 @@
 spring:
     application:
         name: online-store-inventory
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://admin:password@localhost:27017/inventory?authSource=admin}
+      database: ${SPRING_DATA_MONGODB_DATABASE:inventory}
+    
+server:
+    port: ${SERVER_PORT:8081}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE:http://localhost:8761/eureka/}
+
+app:
+    security:
+        api-key: kxMcvCpeRe7Nv6WSrFDmvA37FWG04sz3cyRMA0y8

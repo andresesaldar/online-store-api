@@ -1,0 +1,13 @@
+group = 'com.test.online.store.inventory'
+
+dependencies {
+    implementation project(":common-model")
+
+    implementation "org.springframework:spring-context"
+    implementation "org.springframework:spring-tx"
+
+    implementation(libs.jakartaValidationApi)
+    implementation(libs.jakartaAnnotationApi)
+
+    implementation(libs.jacksonDatabind)
+}

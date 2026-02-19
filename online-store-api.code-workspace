@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "product"
+		},
+		{
+			"path": "inventory"
+		},
+		{
+			"path": "common"
+		},
+		{
+			"path": "docker"
+		},
+		{
+			"path": "eureka-server"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "automatic",
+    	"java.import.gradle.enabled": true,
+	}
+}

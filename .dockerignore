@@ -1,0 +1,11 @@
+.git
+.github
+.gradle
+**/.gradle
+.idea
+**/.idea
+**/build
+**/out
+**/*.iml
+**/*.log
+online-store-api.code-workspace
