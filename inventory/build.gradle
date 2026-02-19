@@ -47,6 +47,7 @@ subprojects {
 			mavenBom("org.slf4j:slf4j-bom:${libs.versions.slf4jBomVersion.get()}")
 			mavenBom("org.junit:junit-bom:${libs.versions.junitVersion.get()}")
 			mavenBom("org.mockito:mockito-bom:${libs.versions.mockitoBomVersion.get()}")
+			mavenBom("org.testcontainers:testcontainers-bom:${libs.versions.testcontainersBomVersion.get()}")
 		}
 	}
 

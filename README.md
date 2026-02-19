@@ -213,3 +213,13 @@ Mejoras sugeridas para operación:
 - correlation/request id propagado entre servicios,
 - métricas de negocio y técnicas por endpoint,
 - health checks más completos y dashboards operativos.
+
+### 11.5 Perfil aislado para pruebas de integración
+
+Como mejora inmediata para estabilidad de CI/CD, se propone un perfil dedicado de integración (por ejemplo `it`) con infraestructura de pruebas desacoplada del entorno normal:
+
+- `product`: base de datos en memoria (H2) para pruebas de endpoints.
+- `inventory`: aislamiento de MongoDB para pruebas de integración (contenedor efímero o alternativa embebida).
+- propiedades específicas para evitar side effects de infraestructura externa (por ejemplo deshabilitar Eureka en tests).
+
+Esto permite ejecutar tests de integración de forma reproducible, rápida y sin dependencias del entorno local.

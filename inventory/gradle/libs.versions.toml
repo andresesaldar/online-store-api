@@ -18,6 +18,7 @@ jakartaServletVersion = "6.1.0"
 slf4jBomVersion = "2.0.17"
 springCloudDependenciesVersion = "2025.1.0"
 mockitoBomVersion = "5.18.0"
+testcontainersBomVersion = "1.20.6"
 
 [libraries]
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstructVersion" }
