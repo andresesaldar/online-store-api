@@ -1,0 +1,9 @@
+group = 'com.test.online.store.eureka.server'
+
+dependencies {
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server"
+}
+
+bootJar {
+    enabled = true
+}

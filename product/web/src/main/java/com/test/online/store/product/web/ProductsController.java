@@ -7,7 +7,7 @@ import com.test.online.store.common.service.model.Response;
 import com.test.online.store.common.web.route.ProductRoute;
 import com.test.online.store.common.web.route.CommonRoute;
 import com.test.online.store.product.service.ProductsService;
-import com.test.online.store.product.service.model.ProductBean;
+import com.test.online.store.product.model.ProductBean;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;

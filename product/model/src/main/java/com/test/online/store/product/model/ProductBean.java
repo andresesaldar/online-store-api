@@ -1,4 +1,4 @@
-package com.test.online.store.product.service.model;
+package com.test.online.store.product.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ public class ProductBean implements Serializable {
     @Size(min = 3)
     String name;
     
-    @Min(0)
+    @Min(1)
     BigDecimal price;
 
     String description;

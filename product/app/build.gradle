@@ -18,5 +18,10 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation(libs.springDocOpenApi)
 
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
     runtimeOnly "org.postgresql:postgresql"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testRuntimeOnly "com.h2database:h2"
+
 }

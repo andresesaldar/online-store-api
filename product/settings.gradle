@@ -2,6 +2,8 @@ rootProject.name = 'product'
 
 include(":domain")
 
+include(":model")
+
 include(":service")
 
 include(":web")

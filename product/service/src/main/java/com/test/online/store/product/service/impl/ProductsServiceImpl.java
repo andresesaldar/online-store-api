@@ -9,13 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.test.online.store.common.service.builder.PageableBuilder;
 import com.test.online.store.common.service.error.CommonValidationError;
-import com.test.online.store.common.service.error.ValidationError;
 import com.test.online.store.common.service.model.PageResult;
 import com.test.online.store.product.domain.model.Product;
 import com.test.online.store.product.domain.repository.ProductsRepository;
 import com.test.online.store.product.service.ProductsService;
 import com.test.online.store.product.service.mapper.ProductsMapper;
-import com.test.online.store.product.service.model.ProductBean;
+import com.test.online.store.product.model.ProductBean;
 
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;

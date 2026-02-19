@@ -1,0 +1,12 @@
+.git
+.github
+.gradle
+.idea
+build
+**/build
+out
+**/*.iml
+*.log
+README.md
+docs
+docker
