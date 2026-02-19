@@ -1,7 +1,7 @@
 package com.test.online.store.product.service;
 
 import com.test.online.store.common.service.model.PageResult;
-import com.test.online.store.product.service.model.ProductBean;
+import com.test.online.store.product.model.ProductBean;
 
 public interface ProductsService {
 

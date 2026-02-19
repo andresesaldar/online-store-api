@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 
 import com.test.online.store.common.service.model.PageResult;
 import com.test.online.store.product.domain.model.Product;
-import com.test.online.store.product.service.model.ProductBean;
+import com.test.online.store.product.model.ProductBean;
 
 @Mapper(componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,

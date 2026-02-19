@@ -7,5 +7,6 @@ public abstract class CommonRoute {
     public static final String BASE = API + V1;
 
     public static final String SLUG_PARAM = "/{slug}";
+    public static final String PRODUCT_SLUG_PARAM = "/{productSlug}";
 
 }

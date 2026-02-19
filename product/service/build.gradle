@@ -1,6 +1,7 @@
 group = 'com.test.online.store.product'
 
 dependencies {
+    implementation project(":model")
     implementation project(":domain")
 
     implementation project(":common-model")
@@ -12,12 +13,16 @@ dependencies {
     
     implementation 'org.springframework.data:spring-data-jpa'
 
+    implementation 'org.springframework.cloud:spring-cloud-commons'
+
     implementation(libs.jakartaValidationApi)
     implementation(libs.jakartaAnnotationApi)
+    implementation(libs.jakartaPersistenceApi)
 
     implementation(libs.jacksonDatabind)
 
     implementation(libs.mapstruct)
  
     annotationProcessor(libs.mapstructProcessor)
+
 }

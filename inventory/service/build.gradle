@@ -1,0 +1,32 @@
+group = 'com.test.online.store.inventory'
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":model")
+
+    implementation project(":common-model")
+    implementation project(":common-domain")
+    implementation project(":common-service")
+    implementation project(":common-web")
+
+    implementation project(":product-model")
+
+    implementation "org.springframework:spring-context"
+    implementation "org.springframework:spring-tx"
+    
+    implementation 'org.springframework.data:spring-data-jpa'
+    implementation 'org.springframework.data:spring-data-mongodb'
+    implementation 'org.springframework:spring-web'
+
+    implementation 'org.springframework.cloud:spring-cloud-commons'
+
+    implementation(libs.jakartaValidationApi)
+    implementation(libs.jakartaAnnotationApi)
+    implementation(libs.jakartaPersistenceApi)
+
+    implementation(libs.jacksonDatabind)
+
+    implementation(libs.mapstruct)
+ 
+    annotationProcessor(libs.mapstructProcessor)
+}

@@ -4,10 +4,16 @@
 			"path": "product"
 		},
 		{
+			"path": "inventory"
+		},
+		{
 			"path": "common"
 		},
 		{
 			"path": "docker"
+		},
+		{
+			"path": "eureka-server"
 		}
 	],
 	"settings": {
