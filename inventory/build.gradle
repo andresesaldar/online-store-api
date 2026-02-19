@@ -12,6 +12,16 @@ allprojects {
 	repositories {
 		mavenCentral()
 	}
+
+	tasks.withType(Test) {
+		testLogging {
+			events "passed", "failed", "skipped"
+			exceptionFormat "full"
+			showStandardStreams true
+			showCauses true
+			showStackTraces true
+		}
+	}
 }
 
 subprojects {
@@ -53,6 +63,13 @@ subprojects {
 
 	tasks.named('test') {
 		useJUnitPlatform()
+		testLogging {
+			events "passed", "failed", "skipped", "standardOut", "standardError"
+			exceptionFormat "full"
+			showStandardStreams true
+			showCauses true
+			showStackTraces true
+		}
 	}
 
 	tasks.withType(JavaCompile).configureEach {
